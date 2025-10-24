@@ -1,0 +1,71 @@
+import java.util.Scanner;
+public class CurrencyConverter {
+    public static void displayMenu() {
+        System.out.println("\n===== Currency Converter =====");
+        System.out.println("1. INR to USD");
+        System.out.println("2. INR to EUR");
+        System.out.println("3. INR to GBP");
+        System.out.println("4. USD to INR");
+        System.out.println("5. EUR to INR");
+        System.out.println("6. GBP to INR");
+        System.out.println("7. Exit");
+        System.out.print("Enter your choice (1-7): ");
+    }
+    // Main function
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int choice;
+        double amount, convertedAmount;
+        // Fixed exchange rates
+        double inrToUsd = 0.012;
+        double inrToEur = 0.011;
+        double inrToGbp = 0.0095;
+        double usdToInr = 83.0;
+        double eurToInr = 90.0;
+        double gbpToInr = 105.0;
+        System.out.println("---------------------------------------------");
+        System.out.println("         CURRENCY CONVERTER PROJECT          ");
+        System.out.println("---------------------------------------------");
+        // Loop for repeated conversions
+        while (true) {
+            displayMenu();
+            choice = sc.nextInt();
+            if (choice == 7) {
+                System.out.println("\nThank you for using the Currency Converter!");
+                System.out.println("Developed by: Revanth Denchanala");
+                break;
+            }
+            System.out.print("Enter amount: ");
+            amount = sc.nextDouble();
+            switch (choice) {
+                case 1:
+                    convertedAmount = amount * inrToUsd;
+                    System.out.println(amount + " INR = " + convertedAmount + " USD");
+                    break;
+                case 2:
+                    convertedAmount = amount * inrToEur;
+                    System.out.println(amount + " INR = " + convertedAmount + " EUR");
+                    break;
+                case 3:
+                    convertedAmount = amount * inrToGbp;
+                    System.out.println(amount + " INR = " + convertedAmount + " GBP");
+                    break;
+                case 4:
+                    convertedAmount = amount * usdToInr;
+                    System.out.println(amount + " USD = " + convertedAmount + " INR");
+                    break;
+                case 5:
+                    convertedAmount = amount * eurToInr;
+                    System.out.println(amount + " EUR = " + convertedAmount + " INR");
+                    break;
+                case 6:
+                    convertedAmount = amount * gbpToInr;
+                    System.out.println(amount + " GBP = " + convertedAmount + " INR");
+                    break;
+                default:
+                    System.out.println("Invalid choice! Please enter between 1-7.");
+            }
+        }
+        sc.close();
+    }
+}
